@@ -1,0 +1,16 @@
+<testsuites id="" name="" tests="2" failures="0" skipped="0" errors="0" time="39.61577499999106">
+<testsuite name="audioSearch.test.ts" timestamp="2023-05-20T18:17:17.048Z" hostname="chromium" tests="2" failures="0" skipped="0" time="67.847" errors="0">
+<testcase name="Check Audio book Play - A Happy Life" classname="audioSearch.test.ts" time="36.573">
+<properties>
+<property name="testrun_evidence">
+</property>
+</properties>
+</testcase>
+<testcase name="Check Audio book Play - The Odyssey" classname="audioSearch.test.ts" time="31.274">
+<properties>
+<property name="testrun_evidence">
+</property>
+</properties>
+</testcase>
+</testsuite>
+</testsuites>
