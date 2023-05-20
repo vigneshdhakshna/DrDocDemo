@@ -20,7 +20,7 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
-  reporter: [['allure-playwright', allureOptions],['html'],['dot'],['list', {printSteps: true }],['junit', junitOptions],['./utils/myReporter.ts']],
+  reporter: [['allure-playwright', allureOptions],['html', { open: 'never'}],['dot'],['list', {printSteps: true }],['junit', junitOptions],['./utils/myReporter.ts']],
   expect :{
     timeout : 24000,
   },
