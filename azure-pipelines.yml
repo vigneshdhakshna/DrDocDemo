@@ -30,7 +30,7 @@ stages:
       displayName: 'Run tests'
       inputs:
         script: |
-          npx playwright test && npx allure generate allure-results --clean
+          npx playwright test && npx allure generate ./allure-results --clean
     - task: PublishAllureReport@1
       inputs:
         reportDir: './allure-report'
