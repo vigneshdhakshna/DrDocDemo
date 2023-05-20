@@ -1,0 +1,39 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- master
+
+stages:
+- stage: __default
+  jobs:
+  - job: Job
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '14.x'
+      displayName: 'Install Node.js'
+    - task: CmdLine@2
+      displayName: 'Install dependencies'
+      inputs:
+        script: |
+          npm install
+    - task: CmdLine@2
+      displayName: 'Install Browsers'
+      inputs:
+        script: "npx playwright install"
+    - task: CmdLine@2
+      displayName: 'Run tests'
+      inputs:
+        script: |
+          npx playwright test && npx allure generate allure-results --clean
+    - task: PublishAllureReport@1
+      inputs:
+        reportDir: './allure-report'
+   
+
+
