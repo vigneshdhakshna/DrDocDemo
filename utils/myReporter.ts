@@ -25,7 +25,7 @@ class MyReporter implements Reporter {
     console.log(`Finished test ${test.title}: ${result.status}`);
     if ((result.status == "passed")) {
       passCount++;
-    } else if ((result.status == "failed")) {
+    } else if ((result.status == "failed" || result.status == "timedOut")) {
       failCount++;
     }
   }

@@ -8,7 +8,7 @@ const itemNames = ExcelUtils.getBookList(
   "Books For Audio"
 );
 for (const itemName of itemNames) {
-  test.only(`Check Audio book Play - ${itemName}`, async ({ itemPage }) => {
+  test(`Check Audio book Play - ${itemName}`, async ({ itemPage }) => {
     await itemPage.seacrhItem(itemName);
     await itemPage.checkAudioRadioButton();
     await itemPage.clickFirstItem(itemName);
