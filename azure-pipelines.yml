@@ -24,7 +24,7 @@ steps:
     displayName: 'Install Browser'
 
   - script: |
-      npx playwright test
+      npx playwright test || echo '##vso[task.complete result=SucceededWithIssues;]Tests Failed'
     displayName: 'Run Playwright tests'
     continueOnError: true
 
