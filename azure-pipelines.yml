@@ -6,6 +6,9 @@
 trigger:
 - master
 
+pool:
+  vmImage: 'ubuntu-latest'
+
 steps:
   - task: NodeTool@0
     inputs:
@@ -13,7 +16,7 @@ steps:
     displayName: 'Install Node.js'
 
   - script: |
-      npm install
+      npm 
     displayName: 'Install dependencies'
 
   - script: |
