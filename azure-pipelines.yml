@@ -6,42 +6,43 @@
 trigger:
 - master
 
-stages:
-- stage: __default
-  jobs:
-  - job: Job
-    pool:
-      vmImage: 'ubuntu-latest'
-    steps:
-    - task: NodeTool@0
-      inputs:
-        versionSpec: '14.x'
-      displayName: 'Install Node.js'
-    - task: CmdLine@2
-      displayName: 'Install dependencies'
-      inputs:
-        script: |
-          npm install
-          
-    - task: CmdLine@2
-      displayName: 'Install Browsers'
-      inputs:
-        script: "npx playwright install"
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '14.x'
+    displayName: 'Install Node.js'
 
-    - task: CmdLine@2
-      displayName: 'Run tests'
-      inputs:
-        script: "npx playwright test"
+  - script: |
+      npm ci
+    displayName: 'Install dependencies'
 
-    - task: CmdLine@2
-      displayName: 'allure result generate'
-      inputs:
-        script: "npx allure generate ./allure-results --clean"
-          
-    - task: PublishAllureReport@1
-      displayName: 'allure Report Publish'
-      inputs:
-        reportDir: './allure-report'
-   
+  - script: |
+      npx playwright test
+    displayName: 'Run Playwright tests'
+
+  - script: |
+      npx allure generate allure-results --clean
+    displayName: 'Generate Allure report'
+
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFormat: 'JUnit'
+      testResultsFiles: '**/junit.xml'
+      searchFolder: '$(System.DefaultWorkingDirectory)/junitReport'
+      mergeTestResults: true
+      failTaskOnFailedTests: true
+    displayName: 'Publish test results'
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathtoPublish: '$(System.DefaultWorkingDirectory)/allure-report'
+      artifactName: 'Allure Report'
+      publishLocation: 'Container'
+    displayName: 'Publish Allure report'
+
+  - task: PublishAllureReport@1
+    inputs:
+      alluredir: '$(System.DefaultWorkingDirectory)/allure-report'
+    displayName: 'Publish Allure report'
 
 
