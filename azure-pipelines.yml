@@ -36,6 +36,6 @@ steps:
     inputs:
       htmlType: 'inline'
       reportTitle: 'Allure Report'
-      reportDir: './allure-report/index.html'
+      reportDir: './allure-report'
     displayName: 'Publish Allure Report'
 
