@@ -31,25 +31,17 @@ steps:
       npx allure generate allure-results --clean
     displayName: 'Generate Allure report'
 
-  - task: PublishTestResults@2
-    inputs:
-      testResultsFormat: 'JUnit'
-      testResultsFiles: '**/junit.xml'
-      searchFolder: '$(System.DefaultWorkingDirectory)/junitReport'
-      mergeTestResults: true
-      failTaskOnFailedTests: true
-    displayName: 'Publish test results'
-
   - task: PublishBuildArtifacts@1
     inputs:
-      pathtoPublish: '$(System.DefaultWorkingDirectory)/allure-report'
-      artifactName: 'Allure Report'
+      PathtoPublish: 'allure-report'
+      ArtifactName: 'Allure Report'
       publishLocation: 'Container'
-    displayName: 'Publish Allure report'
+    displayName: 'Publish Allure Report'
 
-  - task: PublishAllureReport@1
+  - task: PublishHTML@1
     inputs:
-      alluredir: '$(System.DefaultWorkingDirectory)/allure-report'
-    displayName: 'Publish Allure report'
-
+      htmlType: 'inline'
+      reportTitle: 'Allure Report'
+      reportFromPath: 'allure-report'
+    displayName: 'Publish HTML Report'
 
