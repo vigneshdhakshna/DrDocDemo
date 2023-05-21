@@ -22,16 +22,24 @@ stages:
       inputs:
         script: |
           npm install
+          
     - task: CmdLine@2
       displayName: 'Install Browsers'
       inputs:
         script: "npx playwright install"
+
     - task: CmdLine@2
       displayName: 'Run tests'
       inputs:
-        script: |
-          npx playwright test && npx allure generate ./allure-results --clean
+        script: "npx playwright test"
+
+    - task: CmdLine@2
+      displayName: 'allure result generate'
+      inputs:
+        script: "npx allure generate ./allure-results --clean"
+          
     - task: PublishAllureReport@1
+      displayName: 'allure Report Publish'
       inputs:
         reportDir: './allure-report'
    
