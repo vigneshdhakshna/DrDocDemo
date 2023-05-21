@@ -44,7 +44,7 @@ class MyReporter implements Reporter {
       `Finished the run at ${formattedTime} \n Pass - ${passCount} / Fail - ${failCount}`
     );
 
-   /* const mailer = new MailUtil(
+    const mailer = new MailUtil(
       String(process.env.EMAIL),
       String(process.env.PASSWORD)
     );
@@ -52,7 +52,7 @@ class MyReporter implements Reporter {
       String(process.env.TOMAIL),
       "DrDoc Test Result",
       `<div><div><b>Hi Team,</b><br><br>
-                The Smoke Test Execution for OCP Tech Refresh in Production Environment started at 
+                The Smoke Test Execution for DrDoc in Production Environment started at 
                 <span style="color:#993300"><em>${formattedTime}</em></span>. <br>
                 Please open attachment for more details. Below are the results, 
                 <br><br>
@@ -73,7 +73,7 @@ class MyReporter implements Reporter {
                 <br>We are always happy to accommodate our clients with assistance <br>if necessary! Please contact the below QA Team <br>
                 <a href="mailto:vdhakshnamoorthy@oaktreecapital.com " >vdhakshnamoorthy@oaktreecapital.com</a> 
                 <br><br aria-hidden="true"><b>Thanks &amp; Regards, </b><br>QA Team</div></div>`
-    ); */
+    ); 
   }
 }
 

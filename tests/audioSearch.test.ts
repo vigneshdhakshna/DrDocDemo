@@ -16,5 +16,12 @@ for (const itemName of itemNames) {
     await itemPage.clickPlayButton();
     expect(await itemPage.isDownloadOptionAvailable("VBR MP3")).toBeTruthy();
     await itemPage.getViewDetails();
+    await expect(itemPage.isShareButtonVisible()).toBeVisible();
+    await itemPage.clickShareButton();
+    await itemPage.closeShareBox();
+    await expect(itemPage.isFavoriteButtonVisible()).toBeVisible();
+    await itemPage.clickFavoriteButton();
+    await itemPage.closeFavoriteBox();
+    await expect(itemPage.isReviewVisible()).toBeVisible();
   });
 }

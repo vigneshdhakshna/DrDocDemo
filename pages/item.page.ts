@@ -14,6 +14,12 @@ export default class ItemPage extends MainPage {
     fullTextDownload: this.page.getByRole("link", {
       name: "FULL TEXT download",
     }),
+    shareButton: this.page.getByRole("button", { name: "Share" }),
+    shareBoxHeader: this.page.getByText("Share or Embed This Item"),
+    shareBoxClose: this.page.locator("#cher-modal button"),
+    favoriteButton: this.page.getByRole("button", { name: "Favorite" }),
+    favoriteBoxHeader: this.page.getByText("Log In", { exact: true }),
+    favoriteBoxClose: this.page.locator("#favorite-modal button"),
   };
 
   public isFlipRightBtnVisible(): Locator {
@@ -45,15 +51,60 @@ export default class ItemPage extends MainPage {
     return this.productPageElements.playButton;
   }
 
-  public async getDownloadOptions():Promise<string[]> {
+  public isReviewVisible(): Locator {
+    const regexPattern = new RegExp("Reviews", "i");
+    return this.page.getByRole("heading", { name: regexPattern.source });
+  }
 
+  public isShareButtonVisible(): Locator {
+    return this.productPageElements.shareButton;
+  }
+
+  public async clickShareButton() {
+    await test.step("clickShareButton", async () => {
+      await this.productPageElements.shareButton.click();
+    });
+  }
+
+  public isShareBoxHeaderVisible(): Locator {
+    return this.productPageElements.shareBoxHeader;
+  }
+
+  public async closeShareBox() {
+    await test.step("closeShareBox", async () => {
+      await this.productPageElements.shareBoxClose.click();
+    });
+  }
+
+  public isFavoriteButtonVisible(): Locator {
+    return this.productPageElements.favoriteButton;
+  }
+
+  public async clickFavoriteButton() {
+    await test.step("clickFavoriteButton", async () => {
+      await this.productPageElements.favoriteButton.click();
+    });
+  }
+
+  public isFavoriteBoxHeaderVisible(): Locator {
+    return this.productPageElements.favoriteBoxHeader;
+  }
+
+  public async closeFavoriteBox() {
+    await test.step("closeFavoriteBox", async () => {
+      await this.productPageElements.favoriteBoxClose.click();
+    });
+  }
+
+
+  public async getDownloadOptions(): Promise<string[]> {
     const downloadOptions = await this.page.$$("a.format-summary");
     const downloadOptList: string[] = [];
 
     for (const element of downloadOptions) {
       const text = await element.textContent();
       if (text !== null) {
-        downloadOptList.push(text.replace(" download","").trim());
+        downloadOptList.push(text.replace(" download", "").trim());
       }
     }
 
@@ -62,8 +113,8 @@ export default class ItemPage extends MainPage {
     return downloadOptList;
   }
 
-  public async isDownloadOptionAvailable(optionName : string) : Promise<boolean>{
-    const optionList = await this.getDownloadOptions()
+  public async isDownloadOptionAvailable(optionName: string): Promise<boolean> {
+    const optionList = await this.getDownloadOptions();
     return optionList.includes(optionName);
   }
 
@@ -77,10 +128,10 @@ export default class ItemPage extends MainPage {
     return this.page.getByRole("link", { name: regexPattern.source });
   }
 
-  public async getViewDetails(){
-    const detailName = await this.page.locator(".item-stats-summary > p:nth-child(1)").textContent();
+  public async getViewDetails() {
+    const detailName = await this.page
+      .locator(".item-stats-summary > p:nth-child(1)")
+      .textContent();
     await test.step(`${detailName}`, async () => {});
-
   }
-
 }

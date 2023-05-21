@@ -3,9 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test",
+    "allureReport": "npx playwright test --reporter=allure-playwright,list",
+    "allureOpen": "npx allure generate allure-results --clean && allure open",
+    "testAllure": "npm run allureReport && exit 0 || npm run allureOpen"
+  },
   "keywords": [],
-  "author": "",
+  "author": "Vignesh Dhakshnamoorthy",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.33.0",
@@ -15,6 +20,7 @@
     "dotenv": "^16.0.3",
     "nodemailer": "^6.9.2",
     "rimraf": "^5.0.1",
+    "tesseract.js": "^4.0.6",
     "xlsx": "^0.18.5"
   }
 }

@@ -4,7 +4,7 @@ const junitOptions = {
   embedAnnotationsAsProperties: true,
   textContentAnnotations: ['test_description'],
   embedAttachmentsAsProperty: 'testrun_evidence',
-  outputFile: './junitReport/results.xml'
+  outputFile: './junitReport/report.xml'
 };
 
 const allureOptions = {
