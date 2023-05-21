@@ -38,7 +38,7 @@ steps:
       publishLocation: 'Container'
     displayName: 'Publish Allure Report'
 
-  - task: PublishHTML@1
+  - task: PublishAllureReport@1
     inputs:
       htmlType: 'inline'
       reportTitle: 'Allure Report'
