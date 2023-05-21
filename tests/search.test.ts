@@ -22,7 +22,7 @@ for (const itemName of fullTextItems) {
 
 const pageScrollItems = ExcelUtils.getBookList("test-data/BookList.xlsx","BookList","Books for page Scroll");
 for (const itemName of pageScrollItems) {
-  test.only(`Scroll the Page - ${itemName}`, async ({ itemPage }) => {
+  test(`Scroll the Page - ${itemName}`, async ({ itemPage }) => {
     await itemPage.seacrhItem(itemName);
     await itemPage.checkTextRadioButton();
     await itemPage.clickFirstItem(itemName);
