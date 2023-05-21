@@ -18,6 +18,10 @@ steps:
   - script: |
       npm install
     displayName: 'Install dependencies'
+    
+  - script: |
+      npx playwright install
+    displayName: 'Install Browser'
 
   - script: |
       npx playwright test
