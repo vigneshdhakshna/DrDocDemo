@@ -24,7 +24,7 @@ steps:
     displayName: 'Install Browser'
 
   - script: |
-      npx playwright test --reporter=allure-playwright,list || echo '##vso[task.complete result=SucceededWithIssues;]Tests Failed'
+      npx playwright test --reporter=allure-playwright,list,./utils/myReporter.ts || echo '##vso[task.complete result=SucceededWithIssues;]Tests Failed'
     displayName: 'Run Playwright tests'
     continueOnError: true
 

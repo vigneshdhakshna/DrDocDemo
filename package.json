@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "allureReport": "npx playwright test --reporter=allure-playwright,list",
+    "allureReport": "npx playwright test --reporter=allure-playwright,list,./utils/myReporter.ts",
     "allureOpen": "npx allure generate allure-results --clean && allure open",
     "testAllure": "npm run allureReport && exit 0 || npm run allureOpen"
   },
