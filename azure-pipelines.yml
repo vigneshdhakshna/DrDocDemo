@@ -43,6 +43,6 @@ steps:
     inputs:
       htmlType: 'inline'
       reportTitle: 'Allure Report'
-      reportFromPath: 'allure-report'
+      reportFromPath: 'allure-report/index.html'
     displayName: 'Publish HTML Report'
 
