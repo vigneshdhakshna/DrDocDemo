@@ -20,6 +20,7 @@ export default class ItemPage extends MainPage {
     favoriteButton: this.page.getByRole("button", { name: "Favorite" }),
     favoriteBoxHeader: this.page.getByText("Log In", { exact: true }),
     favoriteBoxClose: this.page.locator("#favorite-modal button"),
+    pdfDownload: this.page.getByRole('link', { name: 'PDF download' }),
   };
 
   public isFlipRightBtnVisible(): Locator {
@@ -38,6 +39,12 @@ export default class ItemPage extends MainPage {
   public async clickFullTextDownload() {
     await test.step("clickFullTextDownload", async () => {
       await this.productPageElements.fullTextDownload.click();
+    });
+  }
+
+  public async clickPDFDownload() {
+    await test.step("clickPDFDownload", async () => {
+      await this.productPageElements.pdfDownload.click();
     });
   }
 

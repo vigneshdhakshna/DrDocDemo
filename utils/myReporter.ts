@@ -73,7 +73,7 @@ class MyReporter implements Reporter {
                 <br>We are always happy to accommodate our clients with assistance <br>if necessary! Please contact the below QA Team <br>
                 <a href="mailto:vdhakshnamoorthy@oaktreecapital.com " >vdhakshnamoorthy@oaktreecapital.com</a> 
                 <br><br aria-hidden="true"><b>Thanks &amp; Regards, </b><br>QA Team</div></div>`
-    ); 
+    );
   }
 }
 

@@ -1,18 +1,10 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="1.4272639999985695">
-<testsuite name="pdf.test.ts" timestamp="2023-05-21T18:47:15.222Z" hostname="chromium" tests="1" failures="0" skipped="0" time="0.249" errors="0">
-<testcase name="Check Audio book Play " classname="pdf.test.ts" time="0.249">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="13.501219999969006">
+<testsuite name="pdf.test.ts" timestamp="2023-05-22T18:56:56.968Z" hostname="chromium" tests="1" failures="0" skipped="0" time="11.909" errors="0">
+<testcase name="Check PDF Download - As A Man Thinketh" classname="pdf.test.ts" time="11.909">
 <properties>
 <property name="testrun_evidence">
 </property>
 </properties>
-<system-err>
-<![CDATA[Error processing PDF: Error: page.goto: net::ERR_ABORTED at file:///C:/Users/vignesh.dhakshnamoor/Downloads/Annual-Sales-Report-Sample/Annual%20Sales%20Report%20Sample.pdf
-=========================== logs ===========================
-navigating to "file:///C:/Users/vignesh.dhakshnamoor/Downloads/Annual-Sales-Report-Sample/Annual%20Sales%20Report%20Sample.pdf", waiting until "load"
-============================================================
-    at [90mC:\Users\vignesh.dhakshnamoor\source\repos\DrDocDemo\[39mtests\pdf.test.ts:10:16
-]]>
-</system-err>
 </testcase>
 </testsuite>
 </testsuites>
