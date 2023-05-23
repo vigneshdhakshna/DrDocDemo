@@ -9,6 +9,7 @@ interface ExcelColumn {
 }
 
 export class ExcelUtils {
+  
   static readExcel(filePath: string, sheetName: string): ExcelRow[] {
     const workbook = xlsx.readFile(filePath);
     const worksheet = workbook.Sheets[sheetName];
