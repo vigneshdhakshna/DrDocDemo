@@ -20,6 +20,7 @@ const test = baseTest.extend<{
   basePage: BasePage;
   mainPage: MainPage;
   itemPage: ItemPage;
+  UrlName : any;
 }>({
   basePage: async ({ page }, use) => {
     await use(new BasePage(page));
@@ -30,12 +31,9 @@ const test = baseTest.extend<{
   itemPage: async ({ page }, use) => {
     await use(new ItemPage(page));
   },
-  
-});
-
-test.beforeEach(async ({ page }) => {
-  const UrlName :any = process.env.URL;
-  await page.goto(UrlName);
+  UrlName: async ({  }, use) => {
+    await use(process.env.URL);
+  },
 });
 
 

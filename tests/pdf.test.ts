@@ -1,4 +1,4 @@
-import { expect, Page } from "@playwright/test";
+import { expect } from "@playwright/test";
 import test from "./basetest";
 import { ExcelUtils } from "../utils/excel.util";
 import axios from "axios";
@@ -10,7 +10,8 @@ const itemNames = ExcelUtils.getBookList(
   "PDF Download"
 );
 for (const itemName of itemNames) {
-  test(`Check PDF Download - ${itemName}`, async ({ itemPage, page }) => {
+  test(`Check PDF Download - ${itemName}`, async ({ UrlName,itemPage, page }) => {
+    await itemPage.openApp(UrlName);
     await itemPage.seacrhItem(itemName);
     await itemPage.checkTextRadioButton();
     await itemPage.clickFirstItem(itemName);
