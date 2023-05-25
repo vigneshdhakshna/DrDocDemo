@@ -15,7 +15,17 @@ for (const itemName of itemNames) {
     await itemPage.checkTextRadioButton();
     await itemPage.clickFirstItem(itemName);
     await expect(itemPage.getItemHeader(itemName)).toBeVisible();
-
+    await itemPage.clickFullTextDownload();
+    await expect(itemPage.isBacktoItemPageVisible(itemName)).toBeVisible();
+    await itemPage.isBacktoItemPageVisible(itemName).click();
+    await expect(itemPage.getItemHeader(itemName)).toBeVisible();
+    await itemPage.getDownloadOptions();
+    await itemPage.getViewDetails();
+    await expect(itemPage.isShareButtonVisible()).toBeVisible();
+    await itemPage.clickShareButton();
+    await expect(itemPage.isShareBoxHeaderVisible()).toBeVisible();
+    await itemPage.closeShareBox();
+    await expect(itemPage.isReviewVisible()).toBeVisible();
     await itemPage.clickPDFDownload();
 
     const response = await axios.get(page.url(), {
