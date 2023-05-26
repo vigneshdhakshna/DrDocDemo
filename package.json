@@ -5,24 +5,31 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
+    "apiServer": "npx nodemon utils/mockApi.util.ts",
     "allureReport": "npx playwright test --reporter=allure-playwright,list,./utils/myReporter.ts",
     "cleanAllure": "rimraf allure-results && rimraf allure-report && rimraf junitReport && rimraf playwright-report",
     "allureOpen": "npx allure generate allure-results --clean && allure open",
-    "testAllure": "npm run cleanAllure && npm run allureReport && exit 0 || npm run allureOpen"
+    "testAllure": "npm run cleanAllure && npm run allureReport && exit 0 || npm run allureOpen",
+    "testApi": "concurrently \"npm run apiServer\" \"npm run testAllure\""
   },
   "keywords": [],
   "author": "Vignesh Dhakshnamoorthy",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.33.0",
+    "@types/express": "^4.17.17",
     "allure-commandline": "^2.22.0",
     "allure-playwright": "^2.3.0",
     "axios": "^1.4.0",
+    "concurrently": "^8.0.1",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",
+    "express": "^4.18.2",
     "nodemailer": "^6.9.2",
+    "nodemon": "^2.0.22",
     "rimraf": "^5.0.1",
     "tesseract.js": "^4.0.6",
+    "ts-node": "^10.9.1",
     "xlsx": "^0.18.5"
   }
 }

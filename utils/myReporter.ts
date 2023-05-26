@@ -31,6 +31,7 @@ class MyReporter implements Reporter {
   }
 
   async onEnd(result: FullResult) {
+    //apiServer.close();
     const now = new Date();
     const formattedTime = now.toLocaleString("en-US", {
       day: "numeric",
@@ -44,7 +45,7 @@ class MyReporter implements Reporter {
       `Finished the run at ${formattedTime} \n Pass - ${passCount} / Fail - ${failCount}`
     );
 
-    const mailer = new MailUtil(
+    /*const mailer = new MailUtil(
       String(process.env.EMAIL),
       String(process.env.PASSWORD)
     );
@@ -73,7 +74,7 @@ class MyReporter implements Reporter {
                 <br>We are always happy to accommodate our clients with assistance <br>if necessary! Please contact the below QA Team <br>
                 <a href="mailto:vdhakshnamoorthy@oaktreecapital.com " >vdhakshnamoorthy@oaktreecapital.com</a> 
                 <br><br aria-hidden="true"><b>Thanks &amp; Regards, </b><br>QA Team</div></div>`
-    );
+    );*/
   }
 }
 

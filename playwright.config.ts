@@ -24,6 +24,7 @@ export default defineConfig({
   expect :{
     timeout : 24000,
   },
+  
   use: {
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
@@ -35,7 +36,7 @@ export default defineConfig({
  //xcopy /E allure-report\history allure-results
   projects: [
     {
-      name: 'chromium',
+      name: 'DrDocDemo',
       use: { ...devices['Desktop Chrome'] },
     },
 

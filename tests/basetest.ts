@@ -21,6 +21,10 @@ const test = baseTest.extend<{
   mainPage: MainPage;
   itemPage: ItemPage;
   UrlName : any;
+  apiUrl : any;
+  cityName : any;
+
+
 }>({
   basePage: async ({ page }, use) => {
     await use(new BasePage(page));
@@ -33,6 +37,12 @@ const test = baseTest.extend<{
   },
   UrlName: async ({  }, use) => {
     await use(process.env.URL);
+  },
+  apiUrl: async ({  }, use) => {
+    await use(`http://localhost:${port}/`);
+  },
+  cityName: async ({  }, use) => {
+    await use('Thanjavur');
   },
 });
 

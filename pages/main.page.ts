@@ -14,7 +14,7 @@ export default class MainPage extends BasePage {
         
     }
 
-    public async seacrhItem(itemName : string) {
+    public async searchItem(itemName : string) {
         await test.step(`Seacrh Item - ${itemName}`, async () => {
             await this.mainPageElements.searchBox.click();
             await this.mainPageElements.searchBox.fill(itemName);
