@@ -3,6 +3,7 @@ import MainPage from "../pages/main.page";
 import BasePage from "../pages/basepage";
 import ItemPage from "../pages/item.page";
 import * as dotenv from "dotenv";
+import { port } from "../utils/mockApi.util";
 
 if (process.env.NODE_ENV) {
   dotenv.config({

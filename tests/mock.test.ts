@@ -53,7 +53,7 @@ test.describe("Mock Api Automation", () => {
     const temperature: number = await page.evaluate(() => {
       return JSON.parse(document.body.textContent!).temperature;
     });
-
+    console.log(`${city1} Temperature - ${temperature}`);
     expect(temperature).toBe(temperature1);
   });
 
@@ -63,7 +63,7 @@ test.describe("Mock Api Automation", () => {
     const temperature: number = await page.evaluate(() => {
       return JSON.parse(document.body.textContent!).temperature;
     });
-
+    console.log(`${city2} Temperature - ${temperature}`);
     expect(temperature).toBe(33);
   });
 });

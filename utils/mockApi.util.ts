@@ -1,7 +1,7 @@
 // import express, { Request, Response } from "express";
 
 // const app = express();
-// export const port = 6969;
+ export const port = 6969;
 
 // app.use(express.json());
 
