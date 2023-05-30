@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npx playwright test",
     "apiServer": "npx nodemon utils/mockApi.util.ts",
-    "allureReport": "npx playwright test --reporter=allure-playwright,list,./utils/myReporter.ts",
+    "allureReport": "npx playwright test --reporter=allure-playwright,junit,list,./utils/myReporter.ts",
     "cleanAllure": "rimraf allure-results && rimraf allure-report && rimraf junitReport && rimraf playwright-report",
     "allureOpen": "npx allure generate allure-results --clean && allure open",
     "testAllure": "npm run cleanAllure && npm run allureReport && exit 0 || npm run allureOpen",

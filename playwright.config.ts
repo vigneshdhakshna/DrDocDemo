@@ -1,10 +1,10 @@
 import { defineConfig, devices } from '@playwright/test';
 
 const junitOptions = {
-  embedAnnotationsAsProperties: true,
-  textContentAnnotations: ['test_description'],
-  embedAttachmentsAsProperty: 'testrun_evidence',
-  outputFile: './junitReport/report.xml'
+  //embedAnnotationsAsProperties: false,
+  //textContentAnnotations: ['test_description'],
+  //embedAttachmentsAsProperty: 'testrun_evidence',
+  outputFile: './junitResult/junitReport'
 };
 
 const allureOptions = {
