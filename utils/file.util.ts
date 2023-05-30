@@ -1,7 +1,7 @@
 import * as fs from "fs-extra";
 import * as path from 'path';
 
-const projectPath = path.resolve(__dirname).split("\\utils")[0]; 
+const projectPath = path.resolve(__dirname).split("utils")[0]; 
 const allureReport = path.join(projectPath, "allure-report"); 
 const allureResult = path.join(projectPath, "allure-results"); 
 const testResults = path.join(projectPath, "test-results"); 
