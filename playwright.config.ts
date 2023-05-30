@@ -1,43 +1,55 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig, devices } from "@playwright/test";
 
 const junitOptions = {
-  //embedAnnotationsAsProperties: false,
-  //textContentAnnotations: ['test_description'],
-  //embedAttachmentsAsProperty: 'testrun_evidence',
-  outputFile: './junitResult/junitReport'
+   embedAnnotationsAsProperties: false,
+   textContentAnnotations: [],
+   embedAttachmentsAsProperty: [],
+  outputFile: './otherResults/junitResult.xml',
+};
+
+const jsonOptions = {
+  outputFile: './otherResults/jsonResult.json',
 };
 
 const allureOptions = {
-  detail: true, 
-  outputFolder :'allure-results',
+  detail: true,
+  outputFolder: "allure-results",
   suiteTitle: false,
 };
 
 export default defineConfig({
-  testDir: './tests',
+  testDir: "./tests",
   timeout: 60000,
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
-  reporter: [['allure-playwright', allureOptions],['html', { open: 'never'}],['dot'],['list', {printSteps: true }],['junit', junitOptions],['./utils/myReporter.ts']],
-  expect :{
-    timeout : 24000,
+  reporter: [
+    ["allure-playwright", allureOptions],
+    ["html", { open: "never" }],
+    ["dot"],
+    ["list", { printSteps: true }],
+    ["junit", junitOptions],
+    ["json", jsonOptions],
+    ["./utils/myReporter.ts"],
+  ],
+  expect: {
+    timeout: 24000,
   },
-  
+
   use: {
-    trace: 'retain-on-failure',
-    screenshot: 'only-on-failure',
-    video: 'on',
+    trace: "retain-on-failure",
+    screenshot: "only-on-failure",
+    video: "on",
     headless: true,
   },
 
- // globalTeardown: './tests/globalTeardown.ts',
- //xcopy /E allure-report\history allure-results
+  // globalTeardown: './tests/globalTeardown.ts',
+  //xcopy /E allure-report\history allure-results
   projects: [
     {
-      name: 'DrDocDemo',
-      use: { ...devices['Desktop Chrome'] },
+      name: "DrDocDemo",
+      use: { ...devices["Desktop Chrome"] },
     },
 
     /*  {
