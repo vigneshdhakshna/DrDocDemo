@@ -38,11 +38,5 @@ steps:
       reportTitle: 'Allure Report'
       reportDir: './allure-report'
     displayName: 'Publish Allure Report'
-    
-  - task: PublishTestResults@2
-    inputs:
-      testResultsFormat: 'JUnit'
-      testResultsFiles: '**/otherResults/junitResult.xml'
-      mergeTestResults: true
-      testRunTitle: 'Publish Junit Test Results'
+
 
